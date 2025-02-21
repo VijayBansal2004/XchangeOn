@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi" />
+    <title>XchangeOn</title>
+    <link rel="icon" type="image/png" href="images/favicon.webp" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet" />
+  </head>
+
+  <body>
+    <!--============================
+        PRELOADER START
+    ==============================-->
+    <div class="preloader_container" id="preloader">
+      <div class="spinner">
+        <img src="images/favicon.webp" class="x-icon" />
+      </div>
+    </div>
+    <!--============================
+        PRELOADER END
+    ==============================-->
+
+    <!--============================
+        MAIN MANU START
+    ==============================-->
+    <nav class="navbar navbar-expand-lg tf__main_menu">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/logo.svg" alt="logo" class="img-fluid w-100" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <i class="far fa-stream menu_icon_bar"></i>
+          <i class="far fa-times close_icon_close"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#aggregation">Aggregation</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#crypto-market"
+                >Crypto Market</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#order-types">Order Types</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">contact</a>
+            </li>
+          </ul>
+          <ul class="tf__menu_btn d-flex flex-wrap align-items-center ms-auto">
+            <li>
+              <!-- <a href="javascript:void(0)" class="tf__menu_2nd_btn">Log in</a> -->
+              <a href="./login.html" class="custom_link tf__menu_2nd_btn">
+                <span> </span>
+                <span> </span>
+                <span> </span>
+                <span> </span>
+                Log in
+              </a>
+            </li>
+            <li>
+              <a href="./signup.html" class="tf__menu_2nd_btn bg-orange"
+                ><i class="fa-regular fa-user"></i> Sign up</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--============================
+        MAIN MANU END
+    ==============================-->
+
+    <section class="api-container">
+      <div class="container pb_100 pt_165">
+        <div class="d-flex">
+          <div class="col-lg-2 sidebar">
+            <ul>
+              <li><a href="./exchange-api.html">XchangeOn API</a></li>
+              <li>
+                <a href="./introduction.html">Introduction</a>
+              </li>
+              <li><a href="./authentication.html">Authentication</a></li>
+              <li><a href="./market-data.html">Market Data</a></li>
+              <li><a href="./account.html">Account</a></li>
+              <li><a href="./trade.html" class="active">Trade</a></li>
+              <li>
+                <a href="./exchange-token.html">XchangeOn Token</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-8 main-cont">
+            <div id="step1">
+              <h1 class="main-heading mb-5">Trade</h1>
+              <p class="text-red">
+                Note: All trading calls need to be authorized against your
+                <span class="font-bold fst-italic">XchangeOn</span> account
+                before processing any request, refer to the Authentication tab
+                for more details.
+              </p>
+            </div>
+
+            <div class="cont mb-5" id="step2">
+              <div>
+                <h2 class="mb-4">Request A Quote</h2>
+              </div>
+
+              <div>
+                <h2 class="mb-3">
+                  Queries each exchange and returns the best quote corresponding
+                  to parameters.
+                </h2>
+                <pre><code class="language-javascript"
+>POST https://api.xchangeOn/api/v2/trade/requestquote</code
+></pre>
+                <p class="mt-3 mb-3">
+                  Each exchange orderbook is queried and blockchains analyzed
+                  according to parameters.
+                </p>
+              </div>
+              <div>
+                <p><b class="text-white">Request Body</b></p>
+                <table class="mb-4 mt-4">
+                  <thead>
+                    <tr>
+                      <th class="border-right border-bottom">Name</th>
+                      <th class="border-bottom">Type</th>
+                      <th class="border-left border-bottom">Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="border-right border-bottom">
+                        <p>side<span>*</span></p>
+                      </td>
+                      <td class="border-bottom">
+                        <p>String</p>
+                      </td>
+                      <td class="border-left border-bottom">
+                        <p>"buy" or "sell"</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="border-right border-bottom">
+                        <p>executionType<span>*</span></p>
+                      </td>
+                      <td class="border-bottom">
+                        <p>Integer</p>
+                      </td>
+                      <td class="border-left border-bottom">
+                        <p>
+                          1 = Best Execution <br />
+
+                          2 = Quickest Best Execution <br />
+
+                          3 = Instant Settlement
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="border-right border-bottom">
+                        <p>orderType<span>*</span></p>
+                      </td>
+                      <td class="border-bottom">
+                        <p>String</p>
+                      </td>
+                      <td class="border-left border-bottom">
+                        <p>"Market", "Limit" or "Stop"</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="border-right border-bottom">
+                        <p>baseAmount</p>
+                      </td>
+                      <td class="border-bottom">
+                        <p>Decimal</p>
+                      </td>
+                      <td class="border-left border-bottom">
+                        <p>
+                          This refers to the (base) amount in terms of the first
+                          part of the ticker pair.
+                        </p>
+                        <p class="fst-italic">
+                          i.e. if BTC-USDT ({BaseSymbol}-{TargetSymbol} is
+                          requested, the baseAmount refers to the amount in BTC.
+                        </p>
+                        <p>
+                          This parameter can be used for both "buy" and "sell"
+                          orders.
+                        </p>
+                        <p class="text-orange">
+                          *If this parameter is not provided, targetAmount is
+                          required.
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="border-right border-bottom">
+                        <p>baseTokenId</p>
+                      </td>
+                      <td class="border-bottom">
+                        <p>Integer</p>
+                      </td>
+                      <td class="border-left border-bottom">
+                        <p>Unique Token Identifier</p>
+                        <p class="text-orange">
+                          *If this parameter is not provided, baseTokenSymbol is
+                          required.
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="border-right border-bottom">
+                        <p>targetTokenId</p>
+                      </td>
+                      <td class="border-bottom">
+                        <p>Integer</p>
+                      </td>
+                      <td class="border-left border-bottom">
+                        <p>Unique Token Identifier</p>
+                        <p class="text-orange">
+                          *If this parameter is not provided, targetTokenSymbol
+                          is required.
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="border-right border-bottom">
+                        <p>sources</p>
+                      </td>
+                      <td class="border-bottom">
+                        <p>String[]</p>
+                      </td>
+                      <td class="border-left border-bottom">
+                        <p>Array of exchangeIds to filter quotes.</p>
+                        <p>Available value include</p>
+                        <p class="fst-italic">
+                          ["BINANCE", "BITFINEX", "BITMART", "BITMART",
+                          "BITSTAMP", "BITTREX", "CEX", "COINBASE", "COINMETRO",
+                          "CRYPTOCOM", "GATE", "HUOBI", "KRAKEN", "KUCOIN",
+                          "OKX", "OKCOIN", "PROBIT"]
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="border-right border-bottom">
+                        <p>targetAmount</p>
+                      </td>
+                      <td class="border-bottom">
+                        <p>Decimal</p>
+                      </td>
+                      <td class="border-left border-bottom">
+                        <p>
+                          This refers to the (base) amount in terms of the first
+                          part of the ticker pair.
+                        </p>
+                        <p class="fst-italic">
+                          i.e. if BTC-USDT ({BaseSymbol}-{TargetSymbol} is
+                          requested, the targetAmount refers to the amount in
+                          USDT.
+                        </p>
+                        <p>
+                          This refers to the (base) amount in terms of the first
+                          part of the ticker pair. i.e. if BTC-USDT
+                          ({BaseSymbol}-{TargetSymbol} is requested, the
+                          targetAmount refers to the amount in USDT. This
+                          parameter can be used for both "buy" and "sell"
+                          orders.
+                        </p>
+                        <p class="text-orange">
+                          *If this parameter is not provided, baseAmount is
+                          required.
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="border-right border-bottom">
+                        <p>targetTokenSymbol</p>
+                      </td>
+                      <td class="border-bottom">
+                        <p>String</p>
+                      </td>
+                      <td class="border-left border-bottom">
+                        <p>ticker of quote currency (e.g. "BTC")</p>
+                        <p class="text-orange">
+                          *If this parameter is not provided, targetCoinId is
+                          required.
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="border-right">
+                        <p>baseTokenSymbol</p>
+                      </td>
+                      <td>
+                        <p>String</p>
+                      </td>
+                      <td class="border-left">
+                        <p>ticker of base currency (e.g. "BTC")</p>
+                        <p class="text-orange">
+                          *If this parameter is not provided, baseCoinId is
+                          required.
+                        </p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <p>200: OK</p>
+                <pre><code  class="language-javascript">{
+  "data":{
+      "enforceMasterBalance":true,
+      "id":1459,
+      "quoteId":"XchangeOnQ908536F9207349BA99C66",
+      "side":"SELL",
+      "executionType":1,
+      "orderType":"MARKET",
+      "status":"QUOTED",
+      "baseAmount":1.27914,
+      "targetAmount":25.0,
+      "rate":20.17,
+      "baseTokenSymbol":"SOL",
+      "targetTokenSymbol":"USDT", 
+      "baseTokenId":3956,
+      "targetTokenId":4276,
+      "makerFee":0.0,
+      "takerFee":0.0,
+      "XchangeOnFee":5.0,
+      "totalFee":1.8357,
+      "chain":"SPL-SPL",
+      "exchange":"BINANCE",
+      "estSettlementTimeSecs":146,
+      "expiryTime":"1/1/1900 12:00:00 AM",
+      "dateCreated":"4/9/2023 11:54:55 AM",
+      "dateModified":"4/9/2023 11:54:58 AM",
+      "sources":null
+  },
+  "success":true,
+  "timestamp":1681041295072,
+  "requestId":"511203ff-3999-4f3d-ac1c-045d02cbd855",
+  "message":"",
+  "error":null
+}</code></pre>
+              </div>
+            </div>
+
+            <div class="cont mb-5" id="step3">
+              <div>
+                <h2 class="mb-4">Accept A Quote</h2>
+              </div>
+
+              <div id="step4">
+                <h2 class="mb-3">Accept Quote (Place Order)</h2>
+                <pre><code class="language-javascript"
+>POST https://api.xchangeOn/api/v2/trade/acceptquote</code
+></pre>
+              </div>
+              <div>
+                <p><b class="text-white">Request Body</b></p>
+                <table class="mb-4 mt-4">
+                  <thead>
+                    <tr>
+                      <th class="border-right border-bottom">Name</th>
+                      <th class="border-bottom">Type</th>
+                      <th class="border-left border-bottom">Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="border-right border-bottom">
+                        <p>quoteId<span>*</span></p>
+                      </td>
+                      <td class="border-bottom">
+                        <p>String</p>
+                      </td>
+                      <td class="border-left border-bottom">
+                        <p>Id Of The Quote To Accept</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="border-right">
+                        <p>MaxTimeout<span>*</span></p>
+                      </td>
+                      <td>
+                        <p>Int</p>
+                      </td>
+                      <td class="border-left">
+                        <p>Default: 20 seconds</p>
+                        <p>Maximum: 60 seconds</p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <p>200: OK</p>
+                <pre><code  class="language-javascript">{
+  "data":{
+      "orderId":"e8952605-4bc2-4039-a133-4e3gk513afd4c",// for API orders 
+      "quoteId":"XchangeOnQ908536F9207349BA99C66",
+      "timestampCreated":1668931096371,
+  },
+  "success":true,
+  "timestamp":1681041295072,
+  "requestId":"511203ff-3999-4f3d-ac1c-04364564sg55",
+  "message":"",
+  "error":null
+}</code></pre>
+              </div>
+            </div>
+
+            <div class="cont mb-5" id="step5">
+              <div>
+                <h2 class="mb-4">Get Order Detail</h2>
+              </div>
+
+              <div id="step6">
+                <h2 class="mb-3">
+                  Order placed using accept a quote can be retrieved using order
+                  id.
+                </h2>
+                <pre><code class="language-javascript"
+>GET https://api.xchangeOn/api/v2/trade/orderdetail/{orderId}</code
+></pre>
+                <p>
+                  Eg.
+                  <a
+                    href="https://api.xchangeOn/api/v2/trade/orderdetail/e8952605-4bc2-4039-a133-4e3gk513afd4c"
+                    >https://api.xchangeOn/api/v2/trade/orderdetail/e8952605-4bc2-4039-a133-4e3gk513afd4c</a
+                  >
+                </p>
+              </div>
+              <div>
+                <p><b class="text-white">Request Body</b></p>
+                <table class="mb-4 mt-4">
+                  <thead>
+                    <tr>
+                      <th class="border-right border-bottom">Name</th>
+                      <th class="border-bottom">Type</th>
+                      <th class="border-left border-bottom">Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="border-right">
+                        <p>orderId</p>
+                      </td>
+                      <td>
+                        <p>String</p>
+                      </td>
+                      <td class="border-left">
+                        <p>orderId retrieved from previous Accept Quote call</p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <p>200: OK</p>
+                <pre><code  class="language-javascript">{
+  "data":{
+      "orderId":"e8952605-4bc2-4039-a133-4e3gk513afd4c",
+      "quoteId":"XchangeOnQ908536F9207349BA99C66",
+      "orderStatus":"ERROR NO BALANCE",
+      "baseSymbol":"SOL",
+      "targetSymbol":"USDT",
+      "exchange":"BINANCE",
+      "side":"SELL",
+      "orderSize":null,
+      "received":0.0,
+      "receivedSymbol":"USDT",
+      "depositMethod":{
+        "network":"SPL",
+        "amount":1.26907,
+        "symbol":"SOL",
+        "transactionId":"",
+        "fee":0.0000100000,
+        "FeeSymbol":"SOL"
+      },
+      "withdrawMethod":{
+        "network":"SPL",
+        "amount":0.0,
+        "symbol":"USDT",
+        "transactionId":"",
+        "fee":0.8000000000,
+        "FeeSymbol":"USDT"
+      },
+      "XchangeOnFee":5.0000000000,
+      "XchangeOnFeeSymbol":"XchangeOn",
+      "dateCreated":"4/8/2023 6:06:30 PM",
+      "dateModified":"4/8/2023 6:06:30 PM"
+  },
+  "success":true,
+  "timestamp":1681041677918,
+  "requestId":"72b4bb7c-f00d-488d-9945-9212ca07b31a",
+  "message":"",
+  "error":null
+}</code></pre>
+              </div>
+            </div>
+
+            <div class="cont mb-5" id="step7">
+              <div>
+                <h2 class="mb-4">Get All Order Details</h2>
+              </div>
+
+              <div id="step8">
+                <h2 class="mb-3">
+                  All orders placed within the account can be retrieved using
+                  above request. API will return the last 50 orders. Older order
+                  can be fetched using the page number, each request will return
+                  a maximum of 50 orders.
+                </h2>
+                <pre><code class="language-javascript"
+>GET https://api.xchangeOn/api/v2/trade/orderdetails</code
+></pre>
+                <p>
+                  Eg.
+                  <a href="https://api.xchangeOn/api/v2/trade/orderdetails"
+                    >https://api.xchangeOn/api/v2/trade/orderdetails</a
+                  >,<a
+                    href="https://api.xchangeOn/api/v2/trade/orderdetails/{pagenumber}">
+                    https://api.xchangeOn/api/v2/trade/orderdetails/{pagenumber}</a
+                  >
+                </p>
+              </div>
+              <div>
+                <p><b class="text-white">Path Parameters</b></p>
+                <table class="mb-4 mt-4">
+                  <thead>
+                    <tr>
+                      <th class="border-right border-bottom">Name</th>
+                      <th class="border-bottom">Type</th>
+                      <th class="border-left border-bottom">Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="border-right">
+                        <p>pagenumber</p>
+                      </td>
+                      <td>
+                        <p>integer</p>
+                      </td>
+                      <td class="border-left">
+                        <p>
+                          maximum order per request is 50, any later order can
+                          be fetched by passing the page number, if page number
+                          not passed, default it will return first page
+                        </p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <p>200: OK</p>
+                <pre><code  class="language-javascript">{
+  "data":[{
+      "orderId":"e8952605-4bc2-4039-a133-4e3gk513afd4c",
+      "quoteId":"XchangeOnQ908536F9207349BA99C66",
+      "orderStatus":"ERROR NO BALANCE",
+      "baseSymbol":"SOL",
+      "targetSymbol":"USDT",
+      "exchange":"BINANCE",
+      "side":"SELL",
+      "orderSize":null,
+      "received":0.0,
+      "receivedSymbol":"USDT",
+      "depositMethod":{
+        "network":"SPL",
+        "amount":1.26907,
+        "symbol":"SOL",
+        "transactionId":"",
+        "fee":0.0000100000,
+        "FeeSymbol":"SOL"
+      },
+      "withdrawMethod":{
+        "network":"SPL",
+        "amount":0.0,
+        "symbol":"USDT",
+        "transactionId":"",
+        "fee":0.8000000000,
+        "FeeSymbol":"USDT"
+      },
+      "XchangeOnFee":5.0000000000,
+      "XchangeOnFeeSymbol":"XchangeOn",
+      "dateCreated":"4/8/2023 6:06:30 PM",
+      "dateModified":"4/8/2023 6:06:30 PM"
+  },
+  {
+      "orderId":"34df505-4bc2-4039-a133-4e3gk513afd4c",
+      "quoteId":"XchangeOnQ908536F9207349BA99C66",
+      "orderStatus":"ERROR NO BALANCE",
+      "baseSymbol":"SOL",
+      "targetSymbol":"USDT",
+      "exchange":"BINANCE",
+      "side":"SELL",
+      "orderSize":null,
+      "received":0.0,
+      "receivedSymbol":"USDT",
+      "depositMethod":{
+        "network":"SPL",
+        "amount":1.26907,
+        "symbol":"SOL",
+        "transactionId":"",
+        "fee":0.0000100000,
+        "FeeSymbol":"SOL"
+      },
+      "withdrawMethod":{
+        "network":"SPL",
+        "amount":0.0,
+        "symbol":"USDT",
+        "transactionId":"",
+        "fee":0.8000000000,
+        "FeeSymbol":"USDT"
+      },
+      "XchangeOnFee":5.0000000000,
+      "XchangeOnFeeSymbol":"XchangeOn",
+      "dateCreated":"4/8/2023 6:06:30 PM",
+      "dateModified":"4/8/2023 6:06:30 PM"
+  }],
+  "success":true,
+  "timestamp":1681041677918,
+  "requestId":"72b4bb7c-f00d-488d-9945-9212ca07b31a",
+  "message":"",
+  "error":null
+}</code></pre>
+              </div>
+            </div>
+
+            <div class="navigation-btn row">
+              <div class="col-lg-6">
+                <a href="./account.html" class="nav-btn previous-btn">
+                  <div>
+                    <p class="btn-title">Previous</p>
+                    <p>Account</p>
+                  </div>
+                  <div>
+                    <img
+                      src="./svg/right-arrow.svg"
+                      alt=""
+                      class="next-svg"
+                      style="transform: rotate(180deg)" />
+                  </div>
+                </a>
+              </div>
+
+              <div class="col-lg-6">
+                <a href="./exchange-token.html" class="nav-btn">
+                  <div>
+                    <p class="btn-title">Next</p>
+                    <p>XchangeOn Token</p>
+                  </div>
+                  <div>
+                    <img src="./svg/right-arrow.svg" alt="" class="next-svg" />
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="mt-3">
+              <p class="last-updated">Last updated 7 months ago</p>
+            </div>
+          </div>
+
+          <div class="col-lg-2 sidebar sidebar-right">
+            <ul>
+              <li><a href="#step1" class="active">Request A Quote </a></li>
+              <li>
+                <a href="#step2"
+                  >Queries each exchange and returns the best quote
+                  corresponding to parameters.</a
+                >
+              </li>
+              <li>
+                <a href="#step3">Accept A Quote </a>
+              </li>
+              <li>
+                <a href="#step4">Accept Quote (Place Order)</a>
+              </li>
+              <li>
+                <a href="#step5">Get Order Detail </a>
+              </li>
+              <li>
+                <a href="#step6"
+                  >Order placed using accept a quote can be retrieved using
+                  order id.</a
+                >
+              </li>
+              <li>
+                <a href="#step7">Get All Order Details</a>
+              </li>
+              <li>
+                <a href="#step8"
+                  >All orders placed within the account can be retrieved using
+                  above request. API will return the last 50 orders. Older order
+                  can be fetched using the page number, each request will return
+                  a maximum of 50 orders.</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--============================
+        FOOTER START
+    ==============================-->
+	
+<section class="section-sale  subscribe">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="block-text">
+          <h4 class="heading">Subscribe to Our <br>Newsletter </h4>
+          <p>Get the Latest Updates on Digital <br> Currency Trading!" </p>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter Your Email" name="">
+            <button type="submit" class="btn-action">Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <div class="image text-center">
+          <img alt="" src="images/email_message_glass1.png">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer is_dark">
+                <div class="container">
+                    <div class="footer__main">
+                    <div class="row">
+                        <div class="col-xl-4 col-md-8">
+                        <div class="info">
+                            <a href="#" class="logo">
+								<img src="images/logo.svg" alt="" class="img-fluid w-100" />
+                            </a>
+                            <div class="project_by">
+								<label>A Project By</label>
+								<img src="images/innovative-factory.png" alt="" class="img-fluid w-100" />
+                            </div>
+                            
+                            <p>The all new XchangeOn interface designed for a better trading experience.</p>
+                            <ul class="list-social">
+                            <li>
+                                <a href="#">
+                                <i class="fa-brands fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                <i class="fa-brands fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                <i class="fa-brands fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                <i class="fa-brands fa-telegram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                <i class="fa-brands fa-medium"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                <i class="fa-brands fa-linkedin"></i>
+                                </a>
+                            </li>
+                            </ul>
+                        </div>
+                        </div>
+                        <div class="col-xl-2 col-md-4">
+                        <div class="widget-link s4">
+                            <h6 class="title">Company</h6>
+                            <ul>
+                            <li>
+                                <a href="#0">About</a>
+                            </li>
+                            <li>
+                                <a href="#0">Contact </a>
+                            </li>
+                            <li>
+                                <a href="#0">Fee Structure</a>
+                            </li>
+                            <li>
+                                <a href="#0">Support</a>
+                            </li>
+                            <li>
+                                <a href="#0">Create a Ticket</a>
+                            </li>
+                            </ul>
+                        </div>
+                        </div>
+                        <div class="col-xl-2 col-md-4">
+                        <div class="widget-link s4">
+                            <h6 class="title">Services</h6>
+                            <ul>
+                            <li>
+                                <a href="#0">Token Listing</a>
+                            </li>
+                            <li>
+                                <a href="#0">Blog</a>
+                            </li>
+                            <li>
+                                <a href="#0">P2P</a>
+                            </li>
+                            <li>
+                                <a href="#0">App Download</a>
+                            </li>
+                            <li>
+                                <a href="#0">Copy Trading</a>
+                            </li>
+                            <li>
+                                <a href="#0">API Doc</a>
+                            </li>
+                            </ul>
+                        </div>
+                        </div>
+                        <div class="col-xl-2 col-md-4">
+                        <div class="widget-link s4">
+                            <h6 class="title">Academy</h6>
+                            <ul>
+                            <li>
+                                <a href="#0">How to Sign Up</a>
+                            </li>
+                            <li>
+                                <a href="#0">How to do KYC</a>
+                            </li>
+                            <li>
+                                <a href="#0">How to Trade</a>
+                            </li>
+                            </ul>
+                        </div>
+                        </div>
+                        <div class="col-xl-2 col-md-4">
+                        <div class="widget-link s3">
+                            <h6 class="title">Download our app</h6>
+                            <div class="group-button">
+                                <a href="#" class="">
+                                    <img src="images/googleplay-footer.png" alt="" class="img-fluid w-100" />
+                                </a>
+                                <a href="#" class="mt-3">
+                                <img src="images/appstore-footer.png" alt="" class="img-fluid w-100" />
+                                </a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="container-fluid bg">
+                    <div class="footer__bottom">
+                    <p>Copyright © 2024 LEO Global Holding UAB</p>
+                    <ul>
+                        <li>
+                            <a href="#0">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="#0">Disclaimer</a>
+                        </li>
+                        <li>
+                            <a href="#0">User Agreement</a>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+                </footer>
+<!--============================
+        FOOTER END
+    ==============================-->
+<!--jquery library js-->
+<script src="js/plugin.js"></script>
+<!--main js-->
+<script src="js/main.js"></script>
+</body>
+
+</html>
+  </body>
+</html>

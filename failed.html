@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi" />
+    <title>XchangeOn - Verification Failed</title>
+    <link rel="icon" type="image/png" href="images/favicon.webp" />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <style>
+    .verify_sec:before {
+      background-position: top 150px center;
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0px;
+      left: 0px;
+      background: url(images/bg-2.webp) no-repeat;
+      background-size: cover;
+      opacity: 0.4;
+      z-index: 0;
+    }
+
+    .verify_sec:after {
+      display: none;
+    }
+
+    .verify_sec .main-container {
+      z-index: 11;
+    }
+
+    .login-signup-page.auth_from .tf__common_heading_color {
+      font-size: 32px;
+    }
+  </style>
+
+  <body>
+    <div class="preloader_container" id="preloader">
+      <div class="spinner">
+        <img src="images/favicon.webp" class="x-icon" />
+      </div>
+    </div>
+    <section class="auth_from login-signup-page reset-cont verify_sec">
+      <div class="main-container position-relative row m-auto">
+        <div class="col-md-12 col-lg-12 col-xl-12 form-cont">
+          <div class="reset-box">
+            <div class="row justify-content-center">
+              <div class="col-xl-12 m-auto logo-cont- mb-3">
+                <div>
+                  <a class="navbar-brand" href="index.html">
+                    <img
+                      src="images/logo.svg"
+                      alt="logo"
+                      class="img-fluid w-100" />
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-12 m-auto">
+                <div class="tf__common_heading">
+                  <script
+                    src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+                    type="module"></script>
+                  <dotlottie-player
+                    src="https://lottie.host/98001be0-6856-4e7b-a362-9269d0ceaa75/uqFKBkoyfW.lottie"
+                    background="transparent"
+                    speed="1"
+                    style="width: 120px; height: 120px; margin: auto"
+                    loop
+                    autoplay></dotlottie-player>
+                  <h2 class="tf__common_heading_color mt-3">
+                    Verification Failed
+                  </h2>
+                  <p class="text-white">
+                    We encountered an issue verifying your email address. Please
+                    request a new link to complete your registration.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--jquery library js-->
+    <script src="js/plugin.js"></script>
+    <!--main js-->
+    <script src="js/main.js"></script>
+  </body>
+</html>

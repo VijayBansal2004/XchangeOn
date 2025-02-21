@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi" />
+    <title>XchangeOn</title>
+    <link rel="icon" type="image/png" href="images/favicon.webp" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet" />
+  </head>
+
+  <body>
+    <!--============================
+        PRELOADER START
+    ==============================-->
+    <div class="preloader_container" id="preloader">
+      <div class="spinner">
+        <img src="images/favicon.webp" class="x-icon" />
+      </div>
+    </div>
+    <!--============================
+        PRELOADER END
+    ==============================-->
+
+    <!--============================
+        MAIN MANU START
+    ==============================-->
+    <nav class="navbar navbar-expand-lg tf__main_menu">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/logo.svg" alt="logo" class="img-fluid w-100" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <i class="far fa-stream menu_icon_bar"></i>
+          <i class="far fa-times close_icon_close"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#aggregation">Aggregation</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#crypto-market"
+                >Crypto Market</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#order-types">Order Types</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">contact</a>
+            </li>
+          </ul>
+          <ul class="tf__menu_btn d-flex flex-wrap align-items-center ms-auto">
+            <li>
+              <!-- <a href="javascript:void(0)" class="tf__menu_2nd_btn">Log in</a> -->
+              <a href="./login.html" class="custom_link tf__menu_2nd_btn">
+                <span> </span>
+                <span> </span>
+                <span> </span>
+                <span> </span>
+                Log in
+              </a>
+            </li>
+            <li>
+              <a href="./signup.html" class="tf__menu_2nd_btn bg-orange"
+                ><i class="fa-regular fa-user"></i> Sign up</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--============================
+        MAIN MANU END
+    ==============================-->
+
+    <section class="api-container">
+      <div class="container pb_100 pt_165">
+        <div class="d-flex">
+          <div class="col-lg-2 sidebar">
+            <ul>
+              <li><a href="./exchange-api.html">XchangeOn API</a></li>
+              <li>
+                <a href="./introduction.html">Introduction</a>
+              </li>
+              <li><a href="./authentication.html">Authentication</a></li>
+              <li>
+                <a href="./market-data.html" class="active">Market Data</a>
+              </li>
+              <li><a href="./account.html">Account</a></li>
+              <li><a href="./trade.html">Trade</a></li>
+              <li>
+                <a href="./exchange-token.html">XchangeOn Token</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-8 main-cont">
+            <div id="step1">
+              <h1 class="main-heading mb-5">Market Data</h1>
+            </div>
+
+            <div class="cont mb-5" id="step2">
+              <div>
+                <h2 class="mb-4">Market Data Overview</h2>
+              </div>
+
+              <div>
+                <h2 class="mb-3">
+                  Gets an overview of market data for a given base and target.
+                </h2>
+                <pre><code class="language-javascript"
+>GET https://api.xchangeOn/api/v2/marketdata/{baseTokenId}-{targetTokenId}</code
+></pre>
+
+                <p><b class="text-white">* Recommended</b></p>
+                <p class="text-center mt-3 mb-3">OR</p>
+                <pre><code class="language-javascript"
+>GET https://api.xchangeOn/api/v2/marketdata/{baseTokenId}-{targetTokenId}</code
+></pre>
+                <p class="mb-3 mt-3">
+                  This is a public endpoint. Provides the best bid, the best
+                  ask, and live market information.
+                </p>
+              </div>
+              <div>
+                <p><b class="text-white">Path Parameters</b></p>
+                <table class="mb-4 mt-4">
+                  <thead>
+                    <tr>
+                      <th class="border-right border-bottom">Name</th>
+                      <th class="border-bottom">Type</th>
+                      <th class="border-left border-bottom">Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="border-right border-bottom">
+                        <p>baseSymbol</p>
+                      </td>
+                      <td class="border-bottom">
+                        <p>String</p>
+                      </td>
+                      <td class="border-left border-bottom">
+                        <p>
+                          Ticker Pair of the base currency e.g. for Bitcon: BTC
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="border-right border-bottom">
+                        <p>targetSymbol</p>
+                      </td>
+                      <td class="border-bottom">
+                        <p>String</p>
+                      </td>
+                      <td class="border-left border-bottom">
+                        <p>
+                          Ticker Pair of the target currency e.g. for Tether:
+                          USDT
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="border-right border-bottom">
+                        <p>baseTokenId</p>
+                      </td>
+                      <td class="border-bottom">
+                        <p>Int</p>
+                      </td>
+                      <td class="border-left border-bottom">
+                        <p>Token ID of the base currency e.g. for Bitcoin: 1</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="border-right">
+                        <p>targetTokenId</p>
+                      </td>
+                      <td>
+                        <p>Int</p>
+                      </td>
+                      <td class="border-left">
+                        <p>
+                          Token ID of the target currency e.g. for Tether: 825
+                        </p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <p>200: OK /api/v1/marketdata/btc-usdt</p>
+                <pre><code class="language-javascript">// GET  Response
+
+{
+  "data": {
+    "aggregatedVolume": 116132.8442178152, // sum of volume from connections 
+    "high": 19176.3, // overall high 24h
+    "low": 16574.4, // overall low 24h
+    "baseSymbol": "BTC",
+    "targetSymbol": "USDT",
+    "baseTokenId": 1, //Unique XchangeOn ID for token
+    "targetTokenId": 825,
+    "bestBid": {
+      "exchangeName": "OKCOIN",
+      "price": 16692.6,
+      "size": 0.0056
+    },
+    "bestAsk": {
+      "exchangeName": "BITSTAMP",
+      "price": 16713,
+      "size": 0
+    },
+    "dailyChange": 84.59939, //24h
+    "dailyPercentageChange": 0.5081060598 //24h
+  },
+  "success": true,
+  "error": null,
+  "timestamp": 1668931096371,
+  "requestId":"1234"
+}</code></pre>
+              </div>
+            </div>
+
+            <div class="cont mb-5" id="step3">
+              <div>
+                <h2 class="mb-3">
+                  To Complete: Retrieves a snapshot of tickers across all
+                  exchanges.
+                </h2>
+                <pre><code class="language-javascript"
+>GET https://api.xchangeOn/api/v2/marketdata/snapshot/{baseTokenId}-{targetTokenId}</code
+></pre>
+                <p class="mb-3 mt-3">
+                  Get's the last stored data from each exchange ticker
+                </p>
+              </div>
+              <div>
+                <p><b class="text-white">Path Parameters</b></p>
+                <table class="mb-4 mt-4">
+                  <thead>
+                    <tr>
+                      <th class="border-right border-bottom">Name</th>
+                      <th class="border-bottom">Type</th>
+                      <th class="border-left border-bottom">Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="border-right border-bottom">
+                        <p>baseTokenId</p>
+                      </td>
+                      <td class="border-bottom">
+                        <p>Int</p>
+                      </td>
+                      <td class="border-left border-bottom">
+                        <p>Token ID of the base currency e.g. for Bitcon: 1</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="border-right">
+                        <p>targetTokenId</p>
+                      </td>
+                      <td>
+                        <p>Int</p>
+                      </td>
+                      <td class="border-left">
+                        <p>
+                          Token ID of the target currency e.g. for Tether: 825
+                        </p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <p>200: OK</p>
+                <pre><code class="language-javascript">{
+  "response":
+      data:[ {
+        "exchangeName": "BINANCE",
+        "bestAsk": 21934.50,
+        "bestAskSize": 14.291,
+        "bestBid": 21931.30,
+        "bestBidSize": 12.21,
+        "lastPrice": 21941.30,
+        "volume":559357.12
+      }, {
+        "exchangeName": "BITFINEX",
+        "bestAsk": 21930.20,
+        "bestAskSize": 7.241,
+        "bestBid": 21927.10,
+        "bestBidSize": 1.78,
+        "lastPrice": 21941.30,
+        "volume":11555
+      }, {
+        "exchangeName": "BITMART",
+        "bestAsk": 21934.50,
+        "bestAskSize": 4.291,
+        "bestBid": 21931.30,
+        "bestBidSize": 1.2,
+        "lastPrice": 21941.30,
+        "volume":559357
+      }, {
+        "exchangeName": "BITSTAMP",
+        "bestAsk": 21934.50,
+        "bestAskSize": 4.291,
+        "bestBid": 21931.30,
+        "bestBidSize": 1.2,
+        "lastPrice": 21941.30,
+        "volume":559357
+      },
+      ...
+      ],
+      
+      "maxCutOff":5000 // this is the number of milliseconds before we stop returning data for that exchange
+      
+      },   
+  "success": true,
+  "error": null,
+  "timestamp": 1668931096371,
+  "requestId":"1234"
+
+}</code></pre>
+              </div>
+            </div>
+
+            <div class="cont mb-5" id="step4">
+              <div>
+                <h2 class="mb-3">
+                  Retrieves information about a specific token, and relevant
+                  metadata
+                </h2>
+                <pre><code class="language-javascript"
+>GEThttps://api.xchangeOn/api/v2/marketdata/tokeninformation/{symbol}</code
+></pre>
+                <p class="mb-3 mt-3">
+                  Get's the last stored data from each exchange ticker
+                </p>
+              </div>
+              <div>
+                <p><b class="text-white">Path Parameters</b></p>
+                <table class="mb-4 mt-4">
+                  <thead>
+                    <tr>
+                      <th class="border-right border-bottom">Name</th>
+                      <th class="border-bottom">Type</th>
+                      <th class="border-left border-bottom">Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="border-right">
+                        <p>symbol<span class="text-red">*</span></p>
+                      </td>
+                      <td>
+                        <p>String</p>
+                      </td>
+                      <td class="border-left">
+                        <p>
+                          Ticker symbol of the currency e.g. for Bitcon: BTC
+                        </p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <p>200: OK</p>
+                <pre><code class="language-javascript">{
+    "data":
+    [{
+        "tokenId":132,
+        "coinId":781,
+        "name":"Cardano",
+        "ticker":"ADA",
+        "description":"Cardano (ADA) is a cryptocurrency launched in 2017. Cardano has a current supply of 35,538,184,453.812 with 34,670,947,960.302 in circulation. The last known price of Cardano is 0.3296321 USD and is down -7.69 over the last 24 hours. It is currently trading on 661 active market(s) with $316,529,610.18 traded over the last 24 hours. More information can be found at https://www.cardano.org.",
+        "logoURL":"https://s2.coinmarketcap.com/static/img/coins/64x64/2010.webp",
+        "website":"https://www.cardano.org",
+        "rank":7,
+        "marketCap":11424034959.8761980000,
+        "dilutedMarketCap":14827444977.3600000000,
+        "XchangeOnConnectedExchanges":11
+    }],
+  "success": true,
+  "error": null,
+  "timestamp": 1668931096371,
+  "requestId":"1234"
+}</code></pre>
+              </div>
+            </div>
+
+            <div class="navigation-btn row">
+              <div class="col-lg-6">
+                <a href="./introduction.html" class="nav-btn previous-btn">
+                  <div>
+                    <p class="btn-title">Previous</p>
+                    <p>Introduction</p>
+                  </div>
+                  <div>
+                    <img
+                      src="./svg/right-arrow.svg"
+                      alt=""
+                      class="next-svg"
+                      style="transform: rotate(180deg)" />
+                  </div>
+                </a>
+              </div>
+
+              <div class="col-lg-6">
+                <a href="./account.html" class="nav-btn">
+                  <div>
+                    <p class="btn-title">Next</p>
+                    <p>Account</p>
+                  </div>
+                  <div>
+                    <img src="./svg/right-arrow.svg" alt="" class="next-svg" />
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="mt-3">
+              <p class="last-updated">Last updated 7 months ago</p>
+            </div>
+          </div>
+
+          <div class="col-lg-2 sidebar sidebar-right">
+            <ul>
+              <li><a href="#step1" class="active">Market Data Overview</a></li>
+              <li>
+                <a href="#step2"
+                  >Gets an overview of market data for a given base and
+                  target.</a
+                >
+              </li>
+              <li>
+                <a href="#step3"
+                  >To Complete: Retrieves a snapshot of tickers across all
+                  exchanges.</a
+                >
+              </li>
+              <li>
+                <a href="#step4"
+                  >Retrieves information about a specific token, and relevant
+                  metadata</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--============================
+        FOOTER START
+    ==============================-->
+	
+<section class="section-sale  subscribe">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="block-text">
+          <h4 class="heading">Subscribe to Our <br>Newsletter </h4>
+          <p>Get the Latest Updates on Digital <br> Currency Trading!" </p>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter Your Email" name="">
+            <button type="submit" class="btn-action">Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <div class="image text-center">
+          <img alt="" src="images/email_message_glass1.png">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer is_dark">
+                <div class="container">
+                    <div class="footer__main">
+                    <div class="row">
+                        <div class="col-xl-4 col-md-8">
+                        <div class="info">
+                            <a href="#" class="logo">
+								<img src="images/logo.svg" alt="" class="img-fluid w-100" />
+                            </a>
+                            <div class="project_by">
+								<label>A Project By</label>
+								<img src="images/innovative-factory.png" alt="" class="img-fluid w-100" />
+                            </div>
+                            
+                            <p>The all new XchangeOn interface designed for a better trading experience.</p>
+                            <ul class="list-social">
+                            <li>
+                                <a href="#">
+                                <i class="fa-brands fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                <i class="fa-brands fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                <i class="fa-brands fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                <i class="fa-brands fa-telegram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                <i class="fa-brands fa-medium"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                <i class="fa-brands fa-linkedin"></i>
+                                </a>
+                            </li>
+                            </ul>
+                        </div>
+                        </div>
+                        <div class="col-xl-2 col-md-4">
+                        <div class="widget-link s4">
+                            <h6 class="title">Company</h6>
+                            <ul>
+                            <li>
+                                <a href="#0">About</a>
+                            </li>
+                            <li>
+                                <a href="#0">Contact </a>
+                            </li>
+                            <li>
+                                <a href="#0">Fee Structure</a>
+                            </li>
+                            <li>
+                                <a href="#0">Support</a>
+                            </li>
+                            <li>
+                                <a href="#0">Create a Ticket</a>
+                            </li>
+                            </ul>
+                        </div>
+                        </div>
+                        <div class="col-xl-2 col-md-4">
+                        <div class="widget-link s4">
+                            <h6 class="title">Services</h6>
+                            <ul>
+                            <li>
+                                <a href="#0">Token Listing</a>
+                            </li>
+                            <li>
+                                <a href="#0">Blog</a>
+                            </li>
+                            <li>
+                                <a href="#0">P2P</a>
+                            </li>
+                            <li>
+                                <a href="#0">App Download</a>
+                            </li>
+                            <li>
+                                <a href="#0">Copy Trading</a>
+                            </li>
+                            <li>
+                                <a href="#0">API Doc</a>
+                            </li>
+                            </ul>
+                        </div>
+                        </div>
+                        <div class="col-xl-2 col-md-4">
+                        <div class="widget-link s4">
+                            <h6 class="title">Academy</h6>
+                            <ul>
+                            <li>
+                                <a href="#0">How to Sign Up</a>
+                            </li>
+                            <li>
+                                <a href="#0">How to do KYC</a>
+                            </li>
+                            <li>
+                                <a href="#0">How to Trade</a>
+                            </li>
+                            </ul>
+                        </div>
+                        </div>
+                        <div class="col-xl-2 col-md-4">
+                        <div class="widget-link s3">
+                            <h6 class="title">Download our app</h6>
+                            <div class="group-button">
+                                <a href="#" class="">
+                                    <img src="images/googleplay-footer.png" alt="" class="img-fluid w-100" />
+                                </a>
+                                <a href="#" class="mt-3">
+                                <img src="images/appstore-footer.png" alt="" class="img-fluid w-100" />
+                                </a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="container-fluid bg">
+                    <div class="footer__bottom">
+                    <p>Copyright © 2024 LEO Global Holding UAB</p>
+                    <ul>
+                        <li>
+                            <a href="#0">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="#0">Disclaimer</a>
+                        </li>
+                        <li>
+                            <a href="#0">User Agreement</a>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+                </footer>
+<!--============================
+        FOOTER END
+    ==============================-->
+<!--jquery library js-->
+<script src="js/plugin.js"></script>
+<!--main js-->
+<script src="js/main.js"></script>
+</body>
+
+</html>
+  </body>
+</html>
